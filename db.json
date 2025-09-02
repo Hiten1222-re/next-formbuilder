@@ -1,0 +1,91 @@
+{
+  "user": [
+    {
+      "id": "f64b",
+      "email": "vgbgb.@com",
+      "password": "123",
+      "confirmPassword": "123",
+      "fullName": "gtrfdew",
+      "rememberMe": false,
+      "token": "4FMcwlJ1Y4Lw1onU.6EmMm1rxTKM3Azp24Jl5WGtNBSncigG5o"
+    },
+    {
+      "id": "4ded",
+      "email": "asd@gmail.com",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "fullName": "hiten",
+      "rememberMe": false,
+      "token": "aESCOGziJNpmvsUauDquUcaEJioD1mYFVIzcWpkWtNnv3xttcq"
+    },
+    {
+      "id": "1b79",
+      "email": "vgbgb.@k",
+      "password": "1356",
+      "confirmPassword": "1357",
+      "fullName": "neev",
+      "rememberMe": false,
+      "token": "235GWFi5zbz2gP1Q1ugWb5y1gZbUhy4ggJF4FhVTu4BdeACX@O"
+    },
+    {
+      "id": "bc19",
+      "email": "vgbgb.@com",
+      "password": "1234",
+      "confirmPassword": "",
+      "fullName": "",
+      "rememberMe": false
+    },
+    {
+      "id": "e4cd",
+      "email": "shre@example.com",
+      "password": "123456789",
+      "confirmPassword": "123456",
+      "fullName": "Shreyansh",
+      "rememberMe": false
+    },
+    {
+      "id": "8d75",
+      "email": "hari123@gmail.com",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "fullName": "hari",
+      "rememberMe": false,
+      "token": "Jakh11gC1FJKlzfDBuaaEQxyehW2fosHNruoFX2RcdvtwmPQKX"
+    },
+    {
+      "id": "589a",
+      "email": "hari123@gmail.com",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "fullName": "hari",
+      "rememberMe": false
+    },
+    {
+      "id": "3a70",
+      "email": "hiten1234@gmail.com",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "fullName": "hiten",
+      "rememberMe": false,
+      "token": "yiPryN1gon@dBmopAbTYh1nRdwvYiM@asPgjHVK2aXiFGogMrj"
+    },
+    {
+      "id": "1c8b",
+      "email": "ferferr@gmail.com",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "fullName": "hhhhhh",
+      "rememberMe": false,
+      "token": "izmemNVqATH2ZEB3byIwafYl3rAGrtnSqVIQMVfgitrQTyQICg"
+    },
+    {
+      "id": "6fce",
+      "email": "harry@gmail.com",
+      "password": "harry",
+      "confirmPassword": "harry",
+      "fullName": "harry",
+      "rememberMe": false,
+      "token": "BXjIzlgpBdmLwAhwgmrKtxnOQ@cbgvobggutqpOaJaskcZiHLr"
+    }
+  ]
+}
