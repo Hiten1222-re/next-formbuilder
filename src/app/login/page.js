@@ -36,6 +36,7 @@ export default function LoginPage() {
       const success = await res.json()
       // console.log(success);
       const filter1 = success.filter((e) => e.email == email.current.value)
+      if(filter1[0].password!=password.current.value){alert("incorrect password or email"); return}
       if (filter1.length > 0) {
         console.log(filter1);
 

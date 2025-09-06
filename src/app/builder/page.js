@@ -30,6 +30,7 @@ const [title,settitle]=useState("")
 const [formid,setformid]=useState(undefined)
 const [formlist,setformlist]=useState([])
 const router=useRouter()
+window.con=Cookies.get('client')
 
 
   useEffect(() => {
@@ -75,9 +76,8 @@ localStorage.setItem('myformtitle',title)
 
 const addfield=async()=> {
   if (!newFieldLabel.trim()) return
-  const con=Cookies.get('client')
 
-  if (!con){
+  if (!window.con){
     router.push('/login')
     return
   }
@@ -269,7 +269,7 @@ switch (ch) {
                       Your forms
                     </option>
               {formlist.map((e)=>(
-                <option key={e} value={e}>
+                <option key={e.value} value={e}>
                       {e}
                     </option>
               ))}
@@ -346,9 +346,12 @@ switch (ch) {
         </div>
       </div>
     </div>
-              <button onClick={()=>{Cookies.remove('client');router.push("/login");}} className="btn btn-danger" style={{position:"fixed",top:"90vh",left:"90vw"}}>
+    {window.con?(<button onClick={()=>{Cookies.remove('client');router.push("/login");}} className="btn btn-danger" style={{position:"fixed",top:"90vh",left:"90vw"}}>
                 Sign Out
-              </button>
+              </button>):(<button onClick={()=>{Cookies.remove('client');router.push("/login");}} className="btn btn-primary" style={{position:"fixed",top:"90vh",left:"90vw"}}>
+                Sign In
+              </button>)}
+              
 
     </>
     )

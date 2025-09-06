@@ -11,7 +11,9 @@ export default async function Forms({params}) {
     const no=response['formtitle'].indexOf(slug[1])
     const data=response["formdata"][no]
 
-
+function save() {
+    
+}
 
     return(<>
     <div className="card shadow pb-5 mb-5 bg-body-tertiary rounded" style={{position:"relative",top:"40px",maxHeight:'80vh',width:"65vw",marginLeft:"auto",marginRight:"auto"}}>
