@@ -112,7 +112,7 @@ export default function HomePage() {
                     Start Building Free
                     <ArrowRight className="ms-2" size={20} />
                   </Link>
-                  <Link href="#" className="btn btn-lg btn-outline-primary px-4 py-3">
+                  <Link href="https://youtu.be/KBa8TN_5LNE?si=rIQ3Wpo16EsnKtAl" className="btn btn-lg btn-outline-primary px-4 py-3">
                     Watch Demo
                     <Eye className="ms-2" size={20} />
                   </Link>
@@ -238,7 +238,7 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                  <button className="btn btn-outline-primary w-100 mt-4">Get Started Free</button>
+                  <Link href="/builder"><button className="btn btn-outline-primary w-100 mt-4">Get Started Free</button></Link>
                 </div>
               </div>
             </div>
@@ -292,10 +292,11 @@ export default function HomePage() {
           <p className="lead text-white-50 mb-4 mx-auto" style={{ maxWidth: "600px" }}>
             Join thousands of creators who trust our platform to build beautiful, functional forms that convert.
           </p>
+          <Link href="/builder">
           <button className="btn btn-light btn-lg text-primary px-4 py-3 fw-semibold">
             Start Your Free Trial
             <ArrowRight className="ms-2" size={20} />
-          </button>
+          </button></Link>
         </div>
       </section>
 

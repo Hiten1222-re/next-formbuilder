@@ -37,26 +37,11 @@
             "placeholder": "choose color",
             "required": true
           }
-        ],
-        [
-          {
-            "id": 1754305762246,
-            "type": "email",
-            "label": "qswwqd",
-            "required": true
-          },
-          {
-            "id": 1754305769691,
-            "type": "password",
-            "label": "decdsd",
-            "required": true
-          }
         ]
       ],
       "formtitle": [
         "first",
-        "second",
-        "first"
+        "second"
       ]
     },
     {

@@ -124,10 +124,22 @@ const preview=async()=>{
   const cook=JSON.parse(Cookies.get('client'))
   // console.log(fields)
   const current=await fetch(`http://localhost:3200/forms/${cook.id}`)
-  console.log(current);
   
   if (current.ok) {
     const c1=await current.json()
+    console.log(await c1.formtitle);
+    // console.log(c1.formdata.includes(fields));
+    // console.log(c1.formtitle.includes(title));
+    if (c1.formtitle.includes(title)) {
+      const ch=confirm('do you want to save changes then press cancel and change title (Sorry we cant make different changes under same file title >"< )')
+      if (ch) {
+        router.push('/preview')
+        return
+      }
+      else{
+        return
+      }
+    }
     c1.formdata.push(fields)
     c1.formtitle.push(title)
     console.log(c1.formdata);

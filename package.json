@@ -9,7 +9,7 @@
     "lint": "next lint",
     "serve": "json-server --watch db.json --port 3100",
     "serve-json": "json-server --watch form.json --port 3200",
-    "serve-result": "json-server --watch result.json --port 3300"
+    "serve-result": "json-server --watch results.json --port 3201"
   },
   "dependencies": {
     "js-cookie": "^3.0.5",
