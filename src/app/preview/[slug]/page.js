@@ -35,16 +35,16 @@ async function save() {
     for (let i = 0; i < all.length; i++) {
         if (all[i].value.length==0 && imp[i] ||name.current.value=="") {
             alert("Please fill all * fields")
-            return
+            return false
         }
         if (all[i].type=='email' && !all[i].value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
             alert("Please enter proper email")
-            return
+            return false
         }
         if(all[i].type=='password' && !all[i].value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/))
         {
             alert("Password have min 8, at least 1 uppercase, 1 lowercase, 1 digit")
-            return
+            return false
         }
         if (i==0 && all[i].value.trim().length!=0) {
             dict["Full name"]=name.current.value.trim()
@@ -89,9 +89,10 @@ async function save() {
     <div className="card shadow pb-5 mb-5 bg-body-tertiary rounded" style={{position:"relative",top:"40px",maxHeight:'80vh',width:"65vw",marginLeft:"auto",marginRight:"auto"}}>
         <div style={{position:"relative",width:"100%",height:'10px',backgroundColor:"blue",borderStartEndRadius:"7px",borderTopLeftRadius:"7px"}} ></div>
         <h1 style={{marginLeft:"auto",marginRight:"auto",width:"100%",paddingLeft:"26%",height:"80px",paddingTop:"10px",borderRadius:"10px"}}>{slug[1]}</h1><hr/>
-        <form onSubmit={()=>{save()}}>
+        <form >
                 <br/>
             <table style={{marginLeft:"auto",marginRight:"auto",maxHeight:"75vh",width:"40vw",overflowY:"scroll"}}>
+              <tbody>
                 <tr style={{height:"50px"}}>
                     <td>Full Name:<sup style={{color:"red"}}>*</sup></td>
                     <td><input type="text" ref={name} placeholder="Your Name"/></td>
@@ -105,10 +106,11 @@ async function save() {
         ))}
         <tr>
             <td>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" onClick={()=>{save()}}>
                   Submit Form
                 </button>
              </td></tr>
+             </tbody>
                 </table>
         </form>
     </div>

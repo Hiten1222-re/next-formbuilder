@@ -62,7 +62,6 @@ export default function HomePage() {
   ]
 
   useEffect(() => {
-    Cookies.remove('client')
     setIsVisible(true)
     const interval = setInterval(() => {
       setCurrentStep((prev) => (prev + 1) % steps.length)
@@ -72,21 +71,6 @@ export default function HomePage() {
 
   return (
     <div className="min-vh-100">
-      {/* Header */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-white bg-opacity-80 backdrop-blur border-bottom">
-        <div className="container">
-          <div className="navbar-brand d-flex align-items-center">
-            <div className="bg-gradient-primary rounded-2 p-2 me-2">
-              <Sparkles className="text-white" size={20} />
-            </div>
-            <span className="fw-bold fs-4 text-gradient-primary">Dynamic Form Builder</span>
-          </div>
-          <div className="d-flex align-items-center gap-3">
-            <Link href='/login' className="btn btn-outline-primary">Login</Link>
-            <Link href='/builder' className="btn btn-primary">Get Started</Link>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <section className="py-5 position-relative overflow-hidden">

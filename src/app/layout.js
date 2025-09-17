@@ -1,5 +1,10 @@
 import { Inter } from "next/font/google"
 import "./globals.css"
+import Link from "next/link"
+import { Sparkles } from "lucide-react"
+import Cookies from "js-cookie"
+import Navbar from "./Navbar"
+
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -9,6 +14,11 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  // const [client,setclient]=useState('')
+  // if(Cookies.get('client')){
+  //   const cook=JSON.parse(Cookies.get('client'))
+  //   setclient(cook.id)
+  // }
   return (
     <html lang="en">
       <head>
@@ -26,7 +36,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={inter.className}>
-        <div className="min-vh-100 bg-gradient-custom">{children}</div>
+        <div className="min-vh-100 bg-gradient-custom">
+          <Navbar/>
+          {children}</div>
       </body>
     </html>
   )

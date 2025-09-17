@@ -60,7 +60,7 @@ export default function LoginPage() {
 
         if (res.ok) {
           Cookies.set("client", JSON.stringify(dict))
-          router.push("/builder")
+          router.push("/")
         }
 
       }

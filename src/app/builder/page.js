@@ -202,7 +202,7 @@ switch (ch) {
 }
 }
 
-    return(<>
+    return(
          <div className="container p-4">
       <div className="row">
         <div className="col-md-4">
@@ -358,13 +358,5 @@ switch (ch) {
         </div>
       </div>
     </div>
-    {window.con?(<button onClick={()=>{Cookies.remove('client');router.push("/login");}} className="btn btn-danger" style={{position:"fixed",top:"90vh",left:"90vw"}}>
-                Sign Out
-              </button>):(<button onClick={()=>{Cookies.remove('client');router.push("/login");}} className="btn btn-primary" style={{position:"fixed",top:"90vh",left:"90vw"}}>
-                Sign In
-              </button>)}
-              
-
-    </>
     )
 }

@@ -186,7 +186,7 @@ switch (field.type) {
     }
 }
 
-return(<>
+return(
     <div className="container p-4" >
       <div className="row">
         <div className="col-md-6 my-5 mx-auto" >
@@ -225,10 +225,6 @@ return(<>
 
       </div>
     </div>
-    <button type="button" className="btn btn-outline-dark" onClick={()=>navigator.clipboard.writeText(`http://localhost:3000/preview/${clientid}_${title}`)} style={{position:"fixed",top:"90vh",left:"75vw"}}>Copy link to clipboard</button>
-    <button onClick={()=>{Cookies.remove('client');router.push("/login");}} className="btn btn-danger" style={{position:"fixed",top:"90vh",left:"90vw"}}>
-                Sign Out
-              </button>
-    </>
+
 )
 }
