@@ -1,24 +1,16 @@
+'use client'
 import { Inter } from "next/font/google"
 import "./globals.css"
-import Link from "next/link"
-import { Sparkles } from "lucide-react"
-import Cookies from "js-cookie"
+import { usePathname } from "next/navigation"
 import Navbar from "./Navbar"
 
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
-  title: "Dynamic Form Builder - Create Forms with AI",
-  description: "Build custom forms with ease, preview in real-time, and leverage AI for unlimited possibilities.",
-}
-
 export default function RootLayout({ children }) {
-  // const [client,setclient]=useState('')
-  // if(Cookies.get('client')){
-  //   const cook=JSON.parse(Cookies.get('client'))
-  //   setclient(cook.id)
-  // }
+  const pathname = usePathname();
+  const isPreview = pathname.startsWith("/preview");
+
   return (
     <html lang="en">
       <head>
@@ -37,7 +29,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <div className="min-vh-100 bg-gradient-custom">
-          <Navbar/>
+          {!isPreview && <Navbar/>}
           {children}</div>
       </body>
     </html>

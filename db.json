@@ -7,7 +7,7 @@
       "confirmPassword": "123",
       "fullName": "gtrfdew",
       "rememberMe": false,
-      "token": "MbukqegjdqiyoTkRqyrooxpEKogReZMuluW1zuoFgECtvpyqRe"
+      "token": "IxcPD2yXmpWcAvMsXQosErC2eJaPI@PHxvgmyyjWIrVoocHU3a"
     },
     {
       "id": "4ded",
@@ -28,14 +28,6 @@
       "token": "235GWFi5zbz2gP1Q1ugWb5y1gZbUhy4ggJF4FhVTu4BdeACX@O"
     },
     {
-      "id": "bc19",
-      "email": "vgbgb.@com",
-      "password": "1234",
-      "confirmPassword": "",
-      "fullName": "",
-      "rememberMe": false
-    },
-    {
       "id": "e4cd",
       "email": "shre@example.com",
       "password": "123456789",
@@ -50,7 +42,7 @@
       "confirmPassword": "1234",
       "fullName": "hari",
       "rememberMe": false,
-      "token": "KmAuxhF@mquzbilmmilLBo1lmXan2RnI4m@2PlAuXc3Jxrmgwl"
+      "token": "v2lhcEawc@.aJmpJRgniumiamiS32aZPmT4glfViSKjTHUwuzw"
     },
     {
       "id": "589a",
@@ -86,6 +78,14 @@
       "fullName": "harry",
       "rememberMe": false,
       "token": "BXjIzlgpBdmLwAhwgmrKtxnOQ@cbgvobggutqpOaJaskcZiHLr"
+    },
+    {
+      "id": "cfa0",
+      "email": "vgbgb.@com",
+      "password": "123",
+      "confirmPassword": "123",
+      "fullName": "jnnnnn",
+      "rememberMe": false
     }
   ]
 }

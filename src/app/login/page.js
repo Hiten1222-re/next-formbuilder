@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation"
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [isSignUp, setIsSignUp] = useState(false)
+  const [toast,setToast] = useState(null)
   const email = useRef()
   const password = useRef()
   const router = useRouter()
@@ -29,6 +30,11 @@ export default function LoginPage() {
     }))
   }
 
+  const showToast = (message, type) => {
+    setToast({ message, type });
+    setTimeout(() => setToast(null), 3000);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (isSignUp == false) {
@@ -36,7 +42,7 @@ export default function LoginPage() {
       const success = await res.json()
       // console.log(success);
       const filter1 = success.filter((e) => e.email == email.current.value)
-      if(filter1[0].password!=password.current.value){alert("incorrect password or email"); return}
+      if(filter1[0].password!=password.current.value){showToast('Incorrect password or email','danger'); return}
       if (filter1.length > 0) {
         console.log(filter1);
 
@@ -65,12 +71,18 @@ export default function LoginPage() {
 
       }
       else {
-        alert("account not found")
+       showToast('Account not found','danger')
       }
-      console.log('Successfully login');
+      
 
     }
     else {
+      const res = await fetch('http://localhost:3100/user')
+      const success = await res.json()
+      // console.log(success);
+      const filter1 = success.filter((e) => e.email == email.current.value)
+      if(filter1[0]){showToast('Account already with this email','danger'); return}
+
       const resacc = await fetch('http://localhost:3100/user', {
         method: "POST",
         headers: {
@@ -83,7 +95,7 @@ export default function LoginPage() {
         console.error('kaam ni hua');
 
       }
-      console.log("Account created successfully")
+      showToast('Account created successfully','success')
     }
 
     setFormData({
@@ -111,7 +123,7 @@ export default function LoginPage() {
     })
   }
 
-  return (
+  return (<>
     <div className="min-vh-100 d-flex">
       {/* Left Side - Image */}
       <div className="col-lg-6 d-none d-lg-block position-relative overflow-hidden">
@@ -366,5 +378,14 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+    {toast && (
+        <div className="position-fixed bottom-0 end-0 p-3" style={{ zIndex: 1080 }}>
+          <div className={`alert alert-${toast.type === 'success' ? 'success' : 'danger'} alert-dismissible fade show`} role="alert">
+            {toast.message}
+            <button type="button" className="btn-close" onClick={() => setToast(null)}></button>
+          </div>
+        </div>
+      )}
+      </>
   )
 }

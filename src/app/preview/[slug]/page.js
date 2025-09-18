@@ -4,6 +4,7 @@ import { useState,useRef, useEffect } from "react";
 export default function Forms({params}) {
     const [imp,setimp]=useState([])
     const [data,setdata]=useState([])
+    const [toast,setToast]=useState(null)
     // const [result,setresult]=useState({})
     const param=useParams()
     const slug=param['slug']?.split('_')
@@ -34,16 +35,16 @@ async function save() {
     
     for (let i = 0; i < all.length; i++) {
         if (all[i].value.length==0 && imp[i] ||name.current.value=="") {
-            alert("Please fill all * fields")
+            showToast('Please fill all * fields','danger')
             return false
         }
         if (all[i].type=='email' && !all[i].value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-            alert("Please enter proper email")
+            showToast('Please enter proper email','danger')
             return false
         }
         if(all[i].type=='password' && !all[i].value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/))
         {
-            alert("Password have min 8, at least 1 uppercase, 1 lowercase, 1 digit")
+            showToast('Password have min 8, at least 1 uppercase, 1 lowercase, 1 digit','danger')
             return false
         }
         if (i==0 && all[i].value.trim().length!=0) {
@@ -80,8 +81,19 @@ async function save() {
       })
     }) 
   }
+showToast('Thank You,Form filled successfully!','success')
+for (let i = 0; i < all.length; i++) {
+  all[i].value=""
+}
 
 }
+
+
+
+const showToast = (message, type) => {
+    setToast({ message, type });
+    setTimeout(() => setToast(null), 3000);
+  };
 
 
 
@@ -106,7 +118,7 @@ async function save() {
         ))}
         <tr>
             <td>
-        <button type="submit" className="btn btn-primary" onClick={()=>{save()}}>
+        <button type="button" className="btn btn-primary" onClick={()=>{save()}}>
                   Submit Form
                 </button>
              </td></tr>
@@ -114,6 +126,14 @@ async function save() {
                 </table>
         </form>
     </div>
+    {toast && (
+        <div className="position-fixed top-0 end-0 p-3" style={{ zIndex: 1080 }}>
+          <div className={`alert alert-${toast.type === 'success' ? 'success' : 'danger'} alert-dismissible fade show`} role="alert">
+            {toast.message}
+            <button type="button" className="btn-close" onClick={() => setToast(null)}></button>
+          </div>
+        </div>
+      )}
     
     
     </>)
