@@ -15,10 +15,12 @@ export default function MyFormsPage() {
   const [showPreview, setShowPreview] = useState(false);
   const [toast, setToast] = useState(null);
   const router=useRouter()
+  const [cooki,setcooki]=useState(null)
   
   
   useEffect(() => {
       if (Cookies.get('client')) {
+        setcooki(JSON.parse(Cookies.get('client')))
           loadForms();
       }
       else
@@ -57,13 +59,17 @@ export default function MyFormsPage() {
   };
 
   const handlePreview = (form,i) => {
+   
     setSelectedForm(form);
     setShowPreview(true);
     setFormno(i)
   };
-
+  
   const handleCopyLink = async (i) => {
-    const formUrl = `${window.location.origin}/preview/${global.idd}_${formnames[i]}`;
+    const cook=JSON.parse(Cookies.get('client'))
+    console.log(i);
+    
+    const formUrl = `${window.location.origin}/preview/${cook.id}_${formnames[i]}`;
     try {
       await navigator.clipboard.writeText(formUrl);
       showToast('Form link copied to clipboard!', 'success');
@@ -250,7 +256,7 @@ switch (field.type) {
                           </thead>
                           <tbody>
                             {forms.map((form,index) => (
-                              <tr key={formnames[index]}>
+                              <tr key={formnames[index]} onClick={() => handlePreview(form,index)}>
                                 <td className="px-4 py-3">
                                   <div>
                                     <h6 className="mb-1">{formnames[index]}</h6>
@@ -265,17 +271,17 @@ switch (field.type) {
                                 </td>
                                 <td className="px-4 py-3">
                                   <div className="btn-group" role="group">
-                                    <button
+                                    <a href={`http://localhost:3201/results/${cooki.id}_${formnames[index]}`}
                                       className="btn btn-outline-primary btn-sm"
-                                      onClick={() => handlePreview(form,index)}
-                                      title="Preview Form"
+                                      onClick={(e) => e.stopPropagation()}
+                                     
                                     >
                                       <i className="bi bi-eye me-1"></i>
-                                      Preview
-                                    </button>
+                                      Responses
+                                    </a>
                                     <button
                                       className="btn btn-outline-secondary btn-sm"
-                                      onClick={() => handleCopyLink(index)}
+                                      onClick={(e) => {e.stopPropagation();handleCopyLink(index)}}
                                       title="Copy Form Link"
                                     >
                                       <i className="bi bi-link-45deg me-1"></i>
@@ -342,7 +348,7 @@ switch (field.type) {
                 <button
                   type="button"
                   className="btn btn-primary"
-                  onClick={() => handleCopyLink(selectedForm.id)}
+                  onClick={() => handleCopyLink(formno)}
                 >
                   Copy Form Link
                 </button>
