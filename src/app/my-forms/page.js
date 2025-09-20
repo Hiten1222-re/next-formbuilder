@@ -271,14 +271,14 @@ switch (field.type) {
                                 </td>
                                 <td className="px-4 py-3">
                                   <div className="btn-group" role="group">
-                                    <a href={`http://localhost:3201/results/${cooki.id}_${formnames[index]}`}
+                                    <Link href={`${window.location.origin}/response/${cooki.id}_${formnames[index]}`}
                                       className="btn btn-outline-primary btn-sm"
                                       onClick={(e) => e.stopPropagation()}
                                      
                                     >
                                       <i className="bi bi-eye me-1"></i>
                                       Responses
-                                    </a>
+                                    </Link>
                                     <button
                                       className="btn btn-outline-secondary btn-sm"
                                       onClick={(e) => {e.stopPropagation();handleCopyLink(index)}}

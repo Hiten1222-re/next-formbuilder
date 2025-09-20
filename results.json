@@ -88,6 +88,17 @@
           "color picker": "#764242"
         }
       ]
+    },
+    {
+      "id": "8d75_myform",
+      "data": [
+        {
+          "Full name": "llllllll",
+          "email": "llllll@gmail.com",
+          "password": "fffrfrfW2",
+          "mobile no": "8889997772"
+        }
+      ]
     }
   ]
 }
